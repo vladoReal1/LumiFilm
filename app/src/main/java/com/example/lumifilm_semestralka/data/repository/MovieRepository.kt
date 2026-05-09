@@ -2,6 +2,7 @@ package com.example.lumifilm_semestralka.data.repository
 
 import com.example.lumifilm_semestralka.data.local.LumiFilmDatabase
 import com.example.lumifilm_semestralka.data.local.MovieEntity
+import com.example.lumifilm_semestralka.data.remote.MovieDto
 import com.example.lumifilm_semestralka.data.remote.RetrofitInstance
 import com.example.lumifilm_semestralka.domain.model.Movie
 import com.example.lumifilm_semestralka.domain.model.WatchStatus
@@ -35,10 +36,10 @@ class MovieRepository(private val database: LumiFilmDatabase) {
     // ---- LOKÁLNA DATABÁZA ----
 
     fun getAllSavedMovies(): Flow<List<Movie>> =
-            dao.getAllMovies().map { it.map { e -> e.toMovie() } }
+        dao.getAllMovies().map { it.map { e -> e.toMovie() } }
 
     fun getMoviesByStatus(status: WatchStatus): Flow<List<Movie>> =
-            dao.getMoviesByStatus(status.name).map { it.map { e -> e.toMovie() } }
+        dao.getMoviesByStatus(status.name).map { it.map { e -> e.toMovie() } }
 
     suspend fun saveMovie(movie: Movie) = dao.insertMovie(movie.toEntity())
     suspend fun updateMovie(movie: Movie) = dao.updateMovie(movie.toEntity())
@@ -47,19 +48,19 @@ class MovieRepository(private val database: LumiFilmDatabase) {
     // ---- KONVERZIE ----
 
     private fun MovieEntity.toMovie() = Movie(
-            id = id, title = title, overview = overview,
-            posterPath = posterPath, releaseDate = releaseDate,
-            voteAverage = voteAverage,
-            genreIds = genreIds.split(",").mapNotNull { it.trim().toIntOrNull() },
-    isMovie = isMovie, watchStatus = WatchStatus.valueOf(watchStatus),
-    userRating = userRating, userNote = userNote
+        id = id, title = title, overview = overview,
+        posterPath = posterPath, releaseDate = releaseDate,
+        voteAverage = voteAverage,
+        genreIds = genreIds.split(",").mapNotNull { it.trim().toIntOrNull() },
+        isMovie = isMovie, watchStatus = WatchStatus.valueOf(watchStatus),
+        userRating = userRating, userNote = userNote
     )
 
     private fun Movie.toEntity() = MovieEntity(
-            id = id, title = title, overview = overview,
-            posterPath = posterPath, releaseDate = releaseDate,
-            voteAverage = voteAverage, genreIds = genreIds.joinToString(","),
-    isMovie = isMovie, watchStatus = watchStatus.name,
-    userRating = userRating, userNote = userNote
+        id = id, title = title, overview = overview,
+        posterPath = posterPath, releaseDate = releaseDate,
+        voteAverage = voteAverage, genreIds = genreIds.joinToString(","),
+        isMovie = isMovie, watchStatus = watchStatus.name,
+        userRating = userRating, userNote = userNote
     )
 }

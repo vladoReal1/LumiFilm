@@ -1,5 +1,6 @@
 package com.example.lumifilm_semestralka.data.remote
 
+import com.example.lumifilm_semestralka.domain.model.Movie
 import com.google.gson.annotations.SerializedName
 
 // AI assisted: DTO triedy pre odpovede z TMDB API
@@ -28,3 +29,8 @@ data class MovieDto(
     @SerializedName("genre_ids")
     val genreIds: List<Int>
 )
+
+{
+    fun toMovie(): Movie { return TODO("Provide the return value")
+    }
+}

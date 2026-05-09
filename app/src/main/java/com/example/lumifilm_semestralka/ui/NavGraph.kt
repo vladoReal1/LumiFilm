@@ -9,7 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.lumifilm_semestralka.ui.detail.DetailScreen
 import com.example.lumifilm_semestralka.ui.home.HomeScreen
-import com.example.lumifilm_semestralka.ui.mylist.MyListScreen
+import com.example.lumifilm_semestralka.ui.mylist.MojList
 import com.example.lumifilm_semestralka.ui.search.SearchScreen
 import com.example.lumifilm_semestralka.ui.settings.SettingsScreen
 
@@ -34,7 +34,7 @@ fun NavGraph(navController: NavHostController) {
             DetailScreen(movieId = movieId, navController = navController)
         }
         composable(Screen.MyList.route) {
-            MyListScreen(navController = navController)
+            MojList(navController = navController)
         }
         composable(Screen.Settings.route) {
             SettingsScreen(navController = navController)
