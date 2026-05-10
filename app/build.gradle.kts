@@ -87,7 +87,9 @@ dependencies {
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
+    //widget
+    implementation("androidx.glance:glance-appwidget:1.0.0")
+    implementation("androidx.glance:glance-material3:1.0.0")
     // Testy
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
