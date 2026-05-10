@@ -1,6 +1,6 @@
 package com.example.lumifilm_semestralka.data.remote
 
-import com.example.lumifilm_semestralka.BuildConfig
+//import com.example.lumifilm_semestralka.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -18,5 +18,5 @@ object RetrofitInstance {
     }
 
     // API kľúč dostupný cez BuildConfig
-    val apiKey: String = BuildConfig.TMDB_API_KEY
+    val apiKey: String = "abf950e397737e5ecda9abd14e0bd09d"
 }

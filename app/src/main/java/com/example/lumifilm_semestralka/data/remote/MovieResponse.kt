@@ -31,6 +31,13 @@ data class MovieDto(
 )
 
 {
-    fun toMovie(): Movie { return TODO("Provide the return value")
-    }
+    fun toMovie(): Movie = Movie(
+        id = id,
+        title = title ?: "",
+        overview = overview ?: "",
+        posterPath = posterPath,
+        releaseDate = releaseDate ?: "",
+        voteAverage = voteAverage ?: 0.0,
+        genreIds = genreIds ?: emptyList()
+    )
 }
