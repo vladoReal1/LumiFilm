@@ -1,5 +1,6 @@
 package com.example.lumifilm_semestralka.ui.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -11,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -20,7 +22,6 @@ import coil.compose.AsyncImage
 import com.example.lumifilm_semestralka.data.repository.MovieRepository
 import com.example.lumifilm_semestralka.ui.Screen
 
-// AI assisted: Domovská obrazovka s odporúčaním podľa žánru
 @Composable
 fun HomeScreen(navController: NavController, repository: MovieRepository) {
     val viewModel: HomeViewModel = viewModel(factory = HomeViewModelFactory(repository))
@@ -31,45 +32,54 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xFF2D2D2D))
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
         Text(
             text = "Vitajte v LumiFilm!",
             style = MaterialTheme.typography.headlineLarge,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFFFFFFFF)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text("Vyberte si žaner", style = MaterialTheme.typography.titleMedium)
+        Text(
+            text = "Vyberte si žáner",
+            style = MaterialTheme.typography.titleMedium,
+            color = Color(0xFFFFFFFF)
+        )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Horizontálny zoznam žánrov
         LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             items(genres) { genre ->
                 FilterChip(
                     selected = selectedGenre == genre,
                     onClick = { viewModel.onGenreSelected(genre) },
-                    label = { Text(genre.first) }
+                    label = { Text(genre.first, color = Color(0xFF000000)) },
+                    colors = FilterChipDefaults.filterChipColors(
+                        containerColor = Color(0xFF03fc94),
+                        selectedContainerColor = Color(0xFF00b368),
+                        labelColor = Color(0xFF000000),
+                        selectedLabelColor = Color(0xFF000000)
+                    )
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(17.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-        // Tlačidlo na odporúčanie
         Button(
             onClick = { viewModel.getRecommendation() },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Odporúč mi film")
+            Text("🎬 Odporúč mi film", color = Color(0xFF000000))
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Výsledok odporúčania
         when (val state = uiState) {
             is HomeUiState.Idle -> {
                 Box(
@@ -78,7 +88,7 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
                 ) {
                     Text(
                         "Vyber žáner a stlač tlačidlo",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = Color(0xFFAAAAAA)
                     )
                 }
             }
@@ -87,14 +97,17 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
                     modifier = Modifier.fillMaxWidth().height(200.dp),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator()
+                    CircularProgressIndicator(color = Color(0xFF03fc94))
                 }
             }
             is HomeUiState.Success -> {
                 val movie = state.movie
                 Card(
                     modifier = Modifier.fillMaxWidth(),
-                    elevation = CardDefaults.cardElevation(4.dp)
+                    elevation = CardDefaults.cardElevation(4.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFFFFFFF)
+                    )
                 ) {
                     Column {
                         AsyncImage(
@@ -110,22 +123,26 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
                             Text(
                                 text = movie.title,
                                 style = MaterialTheme.typography.titleLarge,
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF000000)
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Row {
                                 Text(
-                                    movie.releaseDate.take(4),
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    text = movie.releaseDate.take(4),
+                                    color = Color(0xFF555555)
                                 )
                                 Spacer(modifier = Modifier.width(12.dp))
-                                Text("⭐ ${String.format("%.1f", movie.voteAverage)}")
+                                Text(
+                                    text = "⭐ ${String.format("%.1f", movie.voteAverage)}",
+                                    color = Color(0xFF000000)
+                                )
                             }
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = movie.overview.take(150) + "...",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                color = Color(0xFF333333)
                             )
                             Spacer(modifier = Modifier.height(12.dp))
                             Button(
@@ -134,7 +151,10 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
                                 },
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                Text("Zobraziť detail")
+                                Text(
+                                    text = "Zobraziť detail",
+                                    color = Color(0xFF000000)
+                                )
                             }
                         }
                     }

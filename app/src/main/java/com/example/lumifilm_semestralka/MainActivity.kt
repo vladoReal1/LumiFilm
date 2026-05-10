@@ -3,6 +3,7 @@ package com.example.lumifilm_semestralka
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.material3.MaterialTheme
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
@@ -18,9 +19,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.lumifilm_semestralka.ui.Screen
-import com.example.lumifilm_semestralka.ui.theme.MojeTemaKuLumi
+import com.example.lumifilm_semestralka.ui.theme.MojaLumiTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +38,11 @@ class MainActivity : ComponentActivity() {
         val repository = MovieRepository(database)
 
         setContent {
-            MojeTemaKuLumi  {
+            MojaLumiTheme {
                 val navController = rememberNavController()
 
                 Scaffold(
+                    containerColor = Color(0xFF2D2D2D),
                     bottomBar = {
                         NavigationBar {
                             val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
@@ -74,7 +77,7 @@ class MainActivity : ComponentActivity() {
                     NavGraph(
                         navController = navController,
                         repository = repository,
-                        modifier = Modifier.padding(paddingValues)
+                        modifier = Modifier.padding(paddingValues).background(Color(0xFF2D2D2D))
                     )
                 }
             }
