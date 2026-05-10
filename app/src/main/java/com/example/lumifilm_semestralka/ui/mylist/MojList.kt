@@ -1,5 +1,7 @@
 package com.example.lumifilm_semestralka.ui.mylist
-
+import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -40,15 +42,33 @@ fun MojList(navController: NavController, repository: MovieRepository) {
             text = "Môj zoznam",
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp),
+            color = Color(0xFFFFFFFF)
+
         )
 
-        TabRow(selectedTabIndex = selectedTab) {
+        TabRow(
+            selectedTabIndex = selectedTab,
+            containerColor = Color(0xFF2D2D2D),
+            contentColor = Color(0xFF03fc94),
+            indicator = { tabPositions ->
+                TabRowDefaults.SecondaryIndicator(
+                    Modifier.tabIndicatorOffset(tabPositions[selectedTab]),
+                    color = Color(0xFF03fc94)
+                )
+            }
+        ) {
             lists.forEachIndexed { index, (title, _) ->
                 Tab(
                     selected = selectedTab == index,
                     onClick = { selectedTab = index },
-                    text = { Text(title, style = MaterialTheme.typography.labelMedium) }
+                    text = {
+                        Text(
+                            text = title,
+                            color = if (selectedTab == index) Color(0xFF03fc94) else Color(0xFFAAAAAA),
+                            style = MaterialTheme.typography.labelMedium
+                        )
+                    }
                 )
             }
         }
