@@ -41,7 +41,11 @@ fun NavGraph(
             arguments = listOf(navArgument("movieId") { type = NavType.IntType })
         ) { backStackEntry ->
             val movieId = backStackEntry.arguments?.getInt("movieId") ?: 0
-            DetailScreen(movieId = movieId, navController = navController)
+            DetailScreen(
+                movieId = movieId,
+                navController = navController,
+                repository = repository
+            )
         }
         composable(Screen.MyList.route) {
             MojList(navController = navController)

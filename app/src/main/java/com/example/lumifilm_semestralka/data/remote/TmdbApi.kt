@@ -1,6 +1,7 @@
 package com.example.lumifilm_semestralka.data.remote
 
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 // AI assisted: Retrofit rozhranie pre TMDB API volania
@@ -30,4 +31,11 @@ interface TmdbApi {
         @Query("api_key") apiKey: String,
         @Query("language") language: String = "sk-SK"
     ): MovieResponse
+
+    @GET("movie/{movieId}")
+    suspend fun getMovieDetail(
+        @Path("movieId") movieId: Int,
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String = "sk-SK"
+    ): MovieDetailDto
 }

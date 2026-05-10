@@ -63,4 +63,16 @@ class MovieRepository(private val database: LumiFilmDatabase) {
         isMovie = isMovie, watchStatus = watchStatus.name,
         userRating = userRating, userNote = userNote
     )
+
+    suspend fun getMovieById(movieId: Int): Movie? {
+        return dao.getMovieById(movieId)?.toMovie()
+    }
+
+    suspend fun getMovieDetail(movieId: Int): Movie? {
+        return try {
+            RetrofitInstance.api.getMovieDetail(movieId, RetrofitInstance.apiKey).toMovie()
+        } catch (e: Exception) {
+            null
+        }
+    }
 }
