@@ -35,7 +35,8 @@ fun MojList(navController: NavController, repository: MovieRepository) {
         "Obľúbené" to viewModel.favourites.collectAsState().value
     )
 
-    var selectedTab by remember { mutableIntStateOf(0) }
+    val selectedTab by viewModel.selectedTab.collectAsState()
+
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
@@ -61,7 +62,7 @@ fun MojList(navController: NavController, repository: MovieRepository) {
             lists.forEachIndexed { index, (title, _) ->
                 Tab(
                     selected = selectedTab == index,
-                    onClick = { selectedTab = index },
+                    onClick = { viewModel.onTabSelected(index) },
                     text = {
                         Text(
                             text = title,

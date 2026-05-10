@@ -22,10 +22,16 @@ class MyListViewModel(private val repository: MovieRepository) : ViewModel() {
     private val _favourites = MutableStateFlow<List<Movie>>(emptyList())
     val favourites: StateFlow<List<Movie>> = _favourites
 
+    private val _selectedTab = MutableStateFlow(0)
+    val selectedTab: StateFlow<Int> = _selectedTab
+
     init {
         loadLists()
     }
 
+    fun onTabSelected(index: Int) {
+        _selectedTab.value = index
+    }
     private fun loadLists() {
         viewModelScope.launch {
             repository.getMoviesByStatus(WatchStatus.WANT_TO_WATCH).collect {
