@@ -56,7 +56,9 @@ fun NavGraph(
             )
         }
         composable(Screen.Settings.route) {
-            SettingsScreen(navController = navController)
+            SettingsScreen(navController = navController,
+                repository = repository
+            )
         }
 
     }
