@@ -28,7 +28,9 @@ fun NavGraph(
 
     ) {
         composable(Screen.Home.route) {
-            HomeScreen(navController = navController)
+            HomeScreen(navController = navController,
+                repository = repository
+            )
         }
         composable(Screen.Search.route) {
             SearchScreen(

@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.padding
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.lumifilm_semestralka.ui.Screen
+import com.example.lumifilm_semestralka.ui.theme.MojeTemaKuLumi
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
         val repository = MovieRepository(database)
 
         setContent {
-            MaterialTheme {
+            MojeTemaKuLumi  {
                 val navController = rememberNavController()
 
                 Scaffold(
