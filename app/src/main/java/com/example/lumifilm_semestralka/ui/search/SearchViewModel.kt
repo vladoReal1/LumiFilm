@@ -16,7 +16,6 @@ sealed class SearchUiState {
     data class Error(val message: String) : SearchUiState()        // Chyba
 }
 
-// AI assisted: ViewModel pre obrazovku vyhľadávania
 class SearchViewModel(private val repository: MovieRepository) : ViewModel() {
 
     // Stav obrazovky - UI ho sleduje

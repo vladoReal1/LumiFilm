@@ -20,7 +20,6 @@ import com.example.lumifilm_semestralka.data.repository.MovieRepository
 import com.example.lumifilm_semestralka.domain.model.Movie
 import com.example.lumifilm_semestralka.ui.Screen
 
-// AI assisted: Obrazovka vyhľadávania filmov
 @Composable
 fun SearchScreen(
     navController: NavController,
@@ -39,23 +38,23 @@ fun SearchScreen(
             .padding(16.dp)
     ) {
         Text(
-            text = "Hľadať",
+            text = "Hľadanie",
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(13.dp))
 
         // Search bar
         OutlinedTextField(
             value = query,
             onValueChange = { viewModel.onQueryChange(it) },
-            label = { Text("Názov filmu alebo seriálu...") },
+            label = { Text("Dajte názov filmu alebo seriálu :)") },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true,
             trailingIcon = {
                 Button(onClick = { viewModel.searchMovies() }) {
-                    Text("Hľadaj")
+                    Text("Hľadať")
                 }
             }
         )
@@ -90,7 +89,7 @@ fun SearchScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text("Žiadne výsledky")
+                        Text("Nič sa nenašlo")
                     }
                 } else {
                     LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {

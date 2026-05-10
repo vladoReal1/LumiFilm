@@ -48,10 +48,14 @@ fun NavGraph(
             )
         }
         composable(Screen.MyList.route) {
-            MojList(navController = navController)
+            MojList(
+                navController = navController,
+                repository = repository
+            )
         }
         composable(Screen.Settings.route) {
             SettingsScreen(navController = navController)
         }
+
     }
 }
