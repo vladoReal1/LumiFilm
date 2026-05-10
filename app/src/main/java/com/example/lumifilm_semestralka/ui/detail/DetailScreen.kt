@@ -1,5 +1,6 @@
 package com.example.lumifilm_semestralka.ui.detail
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -31,28 +33,35 @@ fun DetailScreen(
     val viewModel: DetailViewModel = viewModel(
         factory = DetailViewModelFactory(repository, movieId)
     )
-
     val uiState by viewModel.uiState.collectAsState()
 
     Scaffold(
+        containerColor = Color(0xFF2D2D2D),
         topBar = {
             TopAppBar(
-                title = { Text("Detail filmu") },
+                title = { Text("Detail filmu", color = Color(0xFFFFFFFF)) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Späť")
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = "Späť",
+                            tint = Color(0xFFFFFFFF)
+                        )
                     }
-                }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF2D2D2D)
+                )
             )
         }
     ) { padding ->
         when (val state = uiState) {
             is DetailUiState.Loading -> {
                 Box(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().background(Color(0xFF2D2D2D)),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator()
+                    CircularProgressIndicator(color = Color(0xFF03fc94))
                 }
             }
             is DetailUiState.Success -> {
@@ -60,6 +69,7 @@ fun DetailScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
+                        .background(Color(0xFF2D2D2D))
                         .padding(padding)
                         .verticalScroll(rememberScrollState())
                         .padding(16.dp)
@@ -81,7 +91,8 @@ fun DetailScreen(
                     Text(
                         text = movie.title,
                         style = MaterialTheme.typography.headlineSmall,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFFFFFFF)
                     )
 
                     Spacer(modifier = Modifier.height(4.dp))
@@ -91,12 +102,13 @@ fun DetailScreen(
                         Text(
                             text = movie.releaseDate.take(4),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            color = Color(0xFFAAAAAA)
                         )
                         Spacer(modifier = Modifier.width(12.dp))
                         Text(
                             text = "⭐ ${String.format("%.1f", movie.voteAverage)}",
-                            style = MaterialTheme.typography.bodyMedium
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = Color(0xFFFFFFFF)
                         )
                     }
 
@@ -107,53 +119,45 @@ fun DetailScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        Button(
-                            onClick = { viewModel.updateWatchStatus(WatchStatus.WANT_TO_WATCH) },
-                            modifier = Modifier.weight(1f),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = if (movie.watchStatus == WatchStatus.WANT_TO_WATCH)
-                                    MaterialTheme.colorScheme.primary
-                                else MaterialTheme.colorScheme.surfaceVariant
-                            )
-                        ) {
-                            Text("Chcem pozrieť", style = MaterialTheme.typography.labelSmall)
-                        }
-                        Button(
-                            onClick = { viewModel.updateWatchStatus(WatchStatus.WATCHED) },
-                            modifier = Modifier.weight(1f),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = if (movie.watchStatus == WatchStatus.WATCHED)
-                                    MaterialTheme.colorScheme.primary
-                                else MaterialTheme.colorScheme.surfaceVariant
-                            )
-                        ) {
-                            Text("Pozrené", style = MaterialTheme.typography.labelSmall)
-                        }
-                        Button(
-                            onClick = { viewModel.updateWatchStatus(WatchStatus.FAVOURITE) },
-                            modifier = Modifier.weight(1f),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = if (movie.watchStatus == WatchStatus.FAVOURITE)
-                                    MaterialTheme.colorScheme.primary
-                                else MaterialTheme.colorScheme.surfaceVariant
-                            )
-                        ) {
-                            Text("Obľúbené", style = MaterialTheme.typography.labelSmall)
+                        listOf(
+                            "Chcem pozrieť" to WatchStatus.WANT_TO_WATCH,
+                            "Pozrené" to WatchStatus.WATCHED,
+                            "Obľúbené" to WatchStatus.FAVOURITE
+                        ).forEach { (label, status) ->
+                            Button(
+                                onClick = { viewModel.updateWatchStatus(status) },
+                                modifier = Modifier.weight(1f),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = if (movie.watchStatus == status)
+                                        Color(0xFF03fc94)
+                                    else Color(0xFF3D3D3D)
+                                )
+                            ) {
+                                Text(
+                                    text = label,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = if (movie.watchStatus == status)
+                                        Color(0xFF000000)
+                                    else Color(0xFFFFFFFF)
+                                )
+                            }
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
 
                     // Popis
                     Text(
                         text = "Popis",
                         style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF03fc94)
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = movie.overview.ifEmpty { "Popis nie je dostupný" },
-                        style = MaterialTheme.typography.bodyMedium
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color(0xFFCCCCCC)
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -162,15 +166,22 @@ fun DetailScreen(
                     Text(
                         text = "Moja poznámka",
                         style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF03fc94)
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     OutlinedTextField(
                         value = state.note,
                         onValueChange = { viewModel.updateNote(it) },
                         modifier = Modifier.fillMaxWidth(),
-                        placeholder = { Text("Pridaj poznámku...") },
-                        minLines = 3
+                        placeholder = { Text("Pridaj poznámku...", color = Color(0xFF888888)) },
+                        minLines = 3,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = Color(0xFFFFFFFF),
+                            unfocusedTextColor = Color(0xFFFFFFFF),
+                            focusedBorderColor = Color(0xFF03fc94),
+                            unfocusedBorderColor = Color(0xFF555555)
+                        )
                     )
 
                     Spacer(modifier = Modifier.height(8.dp))
@@ -179,16 +190,18 @@ fun DetailScreen(
                         onClick = { viewModel.saveNote() },
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        Text("Uložiť poznámku")
+                        Text("Uložiť poznámku", color = Color(0xFF000000))
                     }
                 }
             }
             is DetailUiState.Error -> {
                 Box(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color(0xFF2D2D2D)),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text(state.message, color = MaterialTheme.colorScheme.error)
+                    Text(state.message, color = Color(0xFFFF5555))
                 }
             }
         }
