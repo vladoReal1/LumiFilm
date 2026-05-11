@@ -11,7 +11,7 @@ data class Movie(
     val genreIds: List<Int>,
     val isMovie: Boolean = true,
     val watchStatus: WatchStatus = WatchStatus.NONE,
-    val userRating: Int = 0,
+    //val userRating: Int = 0,
     val userNote: String = ""
 )
 

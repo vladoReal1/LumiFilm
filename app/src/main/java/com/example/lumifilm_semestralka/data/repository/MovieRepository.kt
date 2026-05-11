@@ -45,7 +45,6 @@ class MovieRepository(private val database: LumiFilmDatabase) {
     suspend fun updateMovie(movie: Movie) = dao.updateMovie(movie.toEntity())
     suspend fun deleteMovie(movie: Movie) = dao.deleteMovie(movie.toEntity())
 
-    // ---- KONVERZIE ----
 
     private fun MovieEntity.toMovie() = Movie(
         id = id, title = title, overview = overview,
