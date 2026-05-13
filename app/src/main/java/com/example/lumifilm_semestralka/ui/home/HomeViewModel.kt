@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-// Žánre s ich TMDB ID
+// Žánre a ich TMDB ID
 val genres = listOf(
     "Akcia" to 28,
     "Komédia" to 35,
@@ -28,7 +28,6 @@ sealed class HomeUiState {
     data class Error(val message: String) : HomeUiState()
 }
 
-// AI assisted: ViewModel pre domovskú obrazovku
 class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
 
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Idle)

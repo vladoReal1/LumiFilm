@@ -19,7 +19,6 @@ data class StatsUiState(
 
 class SettingsViewModel(private val repository: MovieRepository) : ViewModel() {
 
-    // Kombinácia všetkých troch zoznamov do jedného stavu
     val stats: StateFlow<StatsUiState> = combine(
         repository.getMoviesByStatus(WatchStatus.WATCHED),
         repository.getMoviesByStatus(WatchStatus.WANT_TO_WATCH),

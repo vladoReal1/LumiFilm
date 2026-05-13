@@ -18,3 +18,4 @@ data class MovieEntity(
     val userRating: Int = 0,
     val userNote: String = ""
 )
+

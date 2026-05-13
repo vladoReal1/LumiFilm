@@ -52,15 +52,14 @@ class MovieRepository(private val database: LumiFilmDatabase) {
         voteAverage = voteAverage,
         genreIds = genreIds.split(",").mapNotNull { it.trim().toIntOrNull() },
         isMovie = isMovie, watchStatus = WatchStatus.valueOf(watchStatus),
-        userRating = userRating, userNote = userNote
+        userNote = userNote
     )
 
     private fun Movie.toEntity() = MovieEntity(
         id = id, title = title, overview = overview,
         posterPath = posterPath, releaseDate = releaseDate,
         voteAverage = voteAverage, genreIds = genreIds.joinToString(","),
-        isMovie = isMovie, watchStatus = watchStatus.name,
-        userRating = userRating, userNote = userNote
+        isMovie = isMovie, watchStatus = watchStatus.name, userNote = userNote
     )
 
     suspend fun getMovieById(movieId: Int): Movie? {
