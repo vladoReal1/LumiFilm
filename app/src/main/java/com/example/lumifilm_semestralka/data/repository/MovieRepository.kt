@@ -20,6 +20,7 @@ class MovieRepository(private val database: LumiFilmDatabase) {
         RetrofitInstance.api.searchMovies(RetrofitInstance.apiKey, query).results
     }
 
+
     suspend fun getMoviesByGenre(genreId: Int) = fetchMovies {
         RetrofitInstance.api.getMoviesByGenre(RetrofitInstance.apiKey, genreId).results
     }

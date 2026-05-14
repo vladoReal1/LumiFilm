@@ -32,6 +32,15 @@ interface TmdbApi {
         @Query("language") language: String = "sk-SK"
     ): MovieResponse
 
+//serialy
+//    @GET("search/tv")
+//    suspend fun searchTvShows(
+//        @Query("api_key") apiKey: String,
+//        @Query("query") query: String,
+//        @Query("language") language: String = "sk-SK",
+//        @Query("page") page: Int = 1
+//    ): MovieResponse
+
     @GET("movie/{movieId}")
     suspend fun getMovieDetail(
         @Path("movieId") movieId: Int,

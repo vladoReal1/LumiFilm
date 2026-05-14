@@ -1,3 +1,64 @@
 <resources>
-    <string name="app_name">LumiFilm_semestralka</string>
+    <string name="app_name">LumiFilm_semstralka</string>
+
+    <!-- HomeScreen -->
+    <string name="h_uvitanie">Vitajte v LumiFilm!</string>
+    <string name="h_vyber_zanra">Vyberte si žáner</string>
+    <string name="h_recomend">🎬 Odporúč mi film</string>
+    <string name="h_vyber_zaner_a_stlac">Vyber žáner a stlač tlačidlo</string>
+    <string name="h_zobraz_detail">Zobraziť detail</string>
+    //<string name="home_shake_tip">💡 Alebo zatrás telefónom pre náhodný tip!</string>
+    <string name="h_ziadne_filmy">Žiadne filmy pre tento žáner</string>
+
+    <!-- SearchScreen -->
+    <string name="search_title">Hľadanie</string>
+    <string name="search_hint">Názov filmu alebo seriálu...</string>
+    <string name="search_btn">Hľadať</string>
+    <string name="search_idle">Zadaj názov filmu alebo seriálu</string>
+    <string name="search_empty">Nič sa nenašlo</string>
+
+    <!-- DetailScreen -->
+    <string name="detail_title">Detail filmu</string>
+    <string name="detail_want_to_watch">Chcem pozrieť</string>
+    <string name="detail_watched">Pozrené</string>
+    <string name="detail_favourite">Obľúbené</string>
+    <string name="detail_description">Popis</string>
+    <string name="detail_no_overview">Popis nie je dostupný</string>
+    <string name="detail_note">Moja poznámka</string>
+    <string name="detail_note_hint">Pridaj poznámku...</string>
+    <string name="detail_save_note">Uložiť poznámku</string>
+    <string name="detail_not_found">Film sa nenašiel</string>
+    <string name="detail_back">Späť</string>
+
+    <!-- MyListScreen -->
+    <string name="mylist_title">Môj zoznam</string>
+    <string name="mylist_empty">Žiadne filmy v tejto kategórii</string>
+    <string name="mylist_tab_want">Chcem pozrieť</string>
+    <string name="mylist_tab_watched">Pozrené</string>
+    <string name="mylist_tab_favourite">Obľúbené</string>
+    <string name="mylist_delete">Vymazať</string>
+
+    <!-- SettingsScreen -->
+    <string name="settings_title">Profil</string>
+    <string name="settings_stats">Moje štatistiky</string>
+    <string name="settings_watched">Pozrené</string>
+    <string name="settings_want">Chcem pozrieť</string>
+    <string name="settings_favourite">Obľúbené</string>
+    <string name="settings_total">Celkovo filmov</string>
+    <string name="settings_about">O aplikácii</string>
+    <string name="settings_name">Názov</string>
+    <string name="settings_version">Verzia</string>
+    <string name="settings_data">Dáta</string>
+    <string name="settings_version_value">1.0</string>
+    <string name="settings_data_value">TMDB API</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Domov</string>
+    <string name="nav_search">Hľadať</string>
+    <string name="nav_list">Zoznam</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Widget -->
+    <string name="widget_title">🎬 LumiFilm</string>
+    <string name="widget_subtitle">Otvor app pre film dňa</string>
 </resources>

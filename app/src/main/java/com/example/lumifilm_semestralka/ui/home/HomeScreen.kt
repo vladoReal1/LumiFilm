@@ -21,6 +21,8 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.lumifilm_semestralka.data.repository.MovieRepository
 import com.example.lumifilm_semestralka.ui.Screen
+import androidx.compose.ui.res.stringResource
+import com.example.lumifilm_semestralka.R
 
 @Composable
 fun HomeScreen(navController: NavController, repository: MovieRepository) {
@@ -37,7 +39,7 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
             .padding(16.dp)
     ) {
         Text(
-            text = "Vitajte v LumiFilm!",
+            stringResource(R.string.h_uvitanie),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = Color(0xFFFFFFFF)
