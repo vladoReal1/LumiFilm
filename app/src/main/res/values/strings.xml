@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">LumiFilm_semstralka</string>
 
-    <!-- HomeScreen -->
+    <!--HomeScreen-->
     <string name="h_uvitanie">Vitajte v LumiFilm!</string>
     <string name="h_vyber_zanra">Vyberte si žáner</string>
     <string name="h_recomend">🎬 Odporúč mi film</string>
@@ -9,14 +9,14 @@
     <string name="h_zobraz_detail">Zobraziť detail</string>
     <string name="h_ziadne_filmy">Žiadne filmy pre tento žáner</string>
 
-    <!-- SearchScreen -->
+    <!--SearchScreen-->
     <string name="s_hladanie">Hľadanie</string>
     <string name="s_dajteNaz">Dajte názov filmu :)</string>
     <string name="s_hladaj_button">Hľadať</string>
     <string name="s_zadaj_nazov">Zadaj názov filmu čo chceš nájsť</string>
     <string name="s_nic_sa_nenaslo">Nič sa nenašlo, skúste iný názov</string>
 
-    <!-- DetailScreen -->
+    <!--DetailScreen-->
     <string name="d_title">Detail filmu</string>
     <string name="d_chcem_pozriet">Chcem pozrieť</string>
     <string name="d_pozrene">Pozrené</string>
@@ -29,15 +29,15 @@
     <string name="d_film_nenasiel">Film sa nenašiel</string>
     <string name="d_spat">Späť</string>
 
-    <!-- MyListScreen -->
-    <string name="mylist_title">Môj zoznam</string>
-    <string name="mylist_empty">Žiadne filmy v tejto kategórii</string>
-    <string name="mylist_tab_want">Chcem pozrieť</string>
-    <string name="mylist_tab_watched">Pozrené</string>
-    <string name="mylist_tab_favourite">Obľúbené</string>
-    <string name="mylist_delete">Vymazať</string>
+    <!--MyListScreen-->
+    <string name="m_mojzoznam">Môj zoznam</string>
+    <string name="m_ziadnFilmyTu">Žiadne filmy v tejto kategórii</string>
+    <string name="m_chempozriet">Chcem pozrieť</string>
+    <string name="m_pozrene">Pozrené</string>
+    <string name="m_oblubene">Obľúbené</string>
+    <string name="m_vymazat">Vymazať</string>
 
-    <!-- SettingsScreen -->
+    <!--SettingsScreen-->
     <string name="settings_title">Profil</string>
     <string name="settings_stats">Moje štatistiky</string>
     <string name="settings_watched">Pozrené</string>
@@ -51,13 +51,13 @@
     <string name="settings_version_value">1.0</string>
     <string name="settings_data_value">TMDB API</string>
 
-    <!-- Navigation -->
+    <!--Navigation-->
     <string name="nav_home">Domov</string>
     <string name="nav_search">Hľadať</string>
     <string name="nav_list">Zoznam</string>
     <string name="nav_profile">Profil</string>
 
-    <!-- Widget -->
+    <!--Widget-->
     <string name="widget_title">🎬 LumiFilm</string>
     <string name="widget_subtitle">Otvor app pre film dňa</string>
 </resources>

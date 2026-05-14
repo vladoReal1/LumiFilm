@@ -15,11 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.example.lumifilm_semestralka.R
 import com.example.lumifilm_semestralka.data.repository.MovieRepository
 import com.example.lumifilm_semestralka.domain.model.Movie
 import com.example.lumifilm_semestralka.ui.Screen
@@ -29,9 +31,9 @@ fun MojList(navController: NavController, repository: MovieRepository) {
     val viewModel: MyListViewModel = viewModel(factory = MyListViewModelFactory(repository))
 
     val lists = listOf(
-        "Chcem pozrieť" to viewModel.wantToWatch.collectAsState().value,
-        "Pozrené" to viewModel.watched.collectAsState().value,
-        "Obľúbené" to viewModel.favourites.collectAsState().value
+        stringResource(R.string.m_chempozriet)  to viewModel.wantToWatch.collectAsState().value,
+        stringResource(R.string.m_pozrene)  to viewModel.watched.collectAsState().value,
+        stringResource(R.string.m_oblubene)  to viewModel.favourites.collectAsState().value
     )
 
     val selectedTab by viewModel.selectedTab.collectAsState()
@@ -39,7 +41,7 @@ fun MojList(navController: NavController, repository: MovieRepository) {
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "Môj zoznam",
+            stringResource(R.string.m_mojzoznam) ,
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(16.dp),
@@ -77,7 +79,7 @@ fun MojList(navController: NavController, repository: MovieRepository) {
 
         if (currentList.isEmpty()) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Žiadne filmy v tejto kategórii",
+                Text(stringResource(R.string.m_ziadnFilmyTu),
                     color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         } else {
