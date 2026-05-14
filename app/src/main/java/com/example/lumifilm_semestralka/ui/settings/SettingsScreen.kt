@@ -8,13 +8,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.lumifilm_semestralka.data.repository.MovieRepository
-
+import androidx.compose.ui.res.stringResource
+import com.example.lumifilm_semestralka.R
 @Composable
 fun SettingsScreen(navController: NavController, repository: MovieRepository) {
     val viewModel: SettingsViewModel = viewModel(factory = SettingsViewModelFactory(repository))
@@ -28,7 +30,7 @@ fun SettingsScreen(navController: NavController, repository: MovieRepository) {
             .padding(16.dp)
     ) {
         Text(
-            text = "Profil",
+            stringResource(R.string.set_title),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             color = Color(0xFFFFFFFF)
@@ -36,7 +38,7 @@ fun SettingsScreen(navController: NavController, repository: MovieRepository) {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        Text("Moje štatistiky", style = MaterialTheme.typography.titleMedium, color = Color(0xFF03fc94))
+        Text(stringResource(R.string.set_mojestats), style = MaterialTheme.typography.titleMedium, color = Color(0xFF03fc94))
 
         Spacer(modifier = Modifier.height(12.dp))
 
@@ -46,9 +48,9 @@ fun SettingsScreen(navController: NavController, repository: MovieRepository) {
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             listOf(
-                stats.watchedCount to "Pozrené",
-                stats.wantToWatchCount to "Chcem pozrieť",
-                stats.favouritesCount to "Obľúbené"
+                stats.watchedCount to stringResource(R.string.set_pozrene),
+                stats.wantToWatchCount to stringResource(R.string.set_chcem),
+                stats.favouritesCount to stringResource(R.string.set_mylove)
             ).forEach { (count, label) ->
                 Card(
                     modifier = Modifier.weight(1f),
@@ -78,12 +80,13 @@ fun SettingsScreen(navController: NavController, repository: MovieRepository) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Celkovo filmov", color = Color(0xFFFFFFFF))
+                Text(stringResource(R.string.set_celkovofilmov), color = Color(0xFFFFFFFF))
                 Text("$total", color = Color(0xFF03fc94), fontWeight = FontWeight.Bold, fontSize = 20.sp)
             }
         }
 
         Spacer(modifier = Modifier.height(24.dp))
+
 
 
     }

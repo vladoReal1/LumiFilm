@@ -38,18 +38,12 @@
     <string name="m_vymazat">Vymazať</string>
 
     <!--SettingsScreen-->
-    <string name="settings_title">Profil</string>
-    <string name="settings_stats">Moje štatistiky</string>
-    <string name="settings_watched">Pozrené</string>
-    <string name="settings_want">Chcem pozrieť</string>
-    <string name="settings_favourite">Obľúbené</string>
-    <string name="settings_total">Celkovo filmov</string>
-    <string name="settings_about">O aplikácii</string>
-    <string name="settings_name">Názov</string>
-    <string name="settings_version">Verzia</string>
-    <string name="settings_data">Dáta</string>
-    <string name="settings_version_value">1.0</string>
-    <string name="settings_data_value">TMDB API</string>
+    <string name="set_title">Profil</string>
+    <string name="set_mojestats">Moje štatistiky</string>
+    <string name="set_pozrene">Pozrené</string>
+    <string name="set_chcem">Chcem pozrieť</string>
+    <string name="set_mylove">Obľúbené</string>
+    <string name="set_celkovofilmov">Celkovo filmov</string>
 
     <!--Navigation-->
     <string name="nav_home">Domov</string>
@@ -58,6 +52,8 @@
     <string name="nav_profile">Profil</string>
 
     <!--Widget-->
-    <string name="widget_title">🎬 LumiFilm</string>
-    <string name="widget_subtitle">Otvor app pre film dňa</string>
+    <string name="w_title">🎬 LumiFilm</string>
+    <string name="w_sub">Otvor appku a odporúč si film</string>
+
+    <string name="apicko">abf950e397737e5ecda9abd14e0bd09d</string>
 </resources>

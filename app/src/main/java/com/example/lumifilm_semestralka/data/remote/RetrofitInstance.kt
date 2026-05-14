@@ -20,6 +20,6 @@ object RetrofitInstance {
     // API kľúč dostupný cez BuildConfig
 
     val apiKey: String = "abf950e397737e5ecda9abd14e0bd09d"
-    //val apiKey: String = BuildConfig.TMDB_API_KEY
+
 
 }

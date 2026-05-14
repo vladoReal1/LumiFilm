@@ -19,11 +19,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.lumifilm_semestralka.ui.Screen
 import com.example.lumifilm_semestralka.ui.theme.MojaLumiTheme
-
+import androidx.compose.ui.res.stringResource
+import com.example.lumifilm_semestralka.R
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,26 +51,26 @@ class MainActivity : ComponentActivity() {
                             val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
 
                             NavigationBarItem(
-                                icon = { Icon(Icons.Default.Home, contentDescription = "Domov") },
-                                label = { Text("Domov") },
+                                icon = { Icon(Icons.Default.Home, contentDescription = stringResource(R.string.nav_home)) },
+                                label = { Text(stringResource(R.string.nav_home)) },
                                 selected = currentRoute == Screen.Home.route,
                                 onClick = { navController.navigate(Screen.Home.route) }
                             )
                             NavigationBarItem(
-                                icon = { Icon(Icons.Default.Search, contentDescription = "Hľadať") },
-                                label = { Text("Hľadať") },
+                                icon = { Icon(Icons.Default.Search, contentDescription = stringResource(R.string.nav_search)) },
+                                label = { Text(stringResource(R.string.nav_search)) },
                                 selected = currentRoute == Screen.Search.route,
                                 onClick = { navController.navigate(Screen.Search.route) }
                             )
                             NavigationBarItem(
-                                icon = { Icon(Icons.Default.List, contentDescription = "Zoznam") },
-                                label = { Text("Zoznam") },
+                                icon = { Icon(Icons.AutoMirrored.Filled.List, contentDescription = stringResource(R.string.nav_list)) },
+                                label = { Text(stringResource(R.string.nav_list)) },
                                 selected = currentRoute == Screen.MyList.route,
                                 onClick = { navController.navigate(Screen.MyList.route) }
                             )
                             NavigationBarItem(
-                                icon = { Icon(Icons.Default.Person, contentDescription = "Profil") },
-                                label = { Text("Profil") },
+                                icon = { Icon(Icons.Default.Person, contentDescription = stringResource(R.string.nav_profile)) },
+                                label = { Text(stringResource(R.string.nav_profile)) },
                                 selected = currentRoute == Screen.Settings.route,
                                 onClick = { navController.navigate(Screen.Settings.route) }
                             )

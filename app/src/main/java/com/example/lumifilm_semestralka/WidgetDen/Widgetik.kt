@@ -3,6 +3,7 @@ package com.example.lumifilm_semestralka.widget
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.appwidget.GlanceAppWidget
@@ -15,8 +16,9 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.text.FontWeight
 import androidx.glance.unit.ColorProvider
-
-// AI assisted: Widget zobrazujuci film dna na ploche telefonu
+import androidx.compose.ui.res.stringResource
+import com.example.lumifilm_semestralka.R
+// AI assisted: Widget zobrazujuci sa na ploche telefonu
 class LumiFilmWidget : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         provideContent {
@@ -35,14 +37,14 @@ fun WidgetContent() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "LumiFilm",
+            stringResource(R.string.w_title),
             style = TextStyle(
                 color = ColorProvider(day = Color(0xFF03fc94), night = Color(0xFF03fc94)),
                 fontWeight = FontWeight.Bold
             )
         )
         Text(
-            text = "Film dna",
+            stringResource(R.string.w_sub),
             style = TextStyle(
                 color = ColorProvider(day = Color(0xFFFFFFFF), night = Color(0xFFFFFFFF))
             )
