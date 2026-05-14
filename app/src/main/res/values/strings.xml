@@ -7,15 +7,14 @@
     <string name="h_recomend">🎬 Odporúč mi film</string>
     <string name="h_vyber_zaner_a_stlac">Vyber žáner a stlač tlačidlo</string>
     <string name="h_zobraz_detail">Zobraziť detail</string>
-    //<string name="home_shake_tip">💡 Alebo zatrás telefónom pre náhodný tip!</string>
     <string name="h_ziadne_filmy">Žiadne filmy pre tento žáner</string>
 
     <!-- SearchScreen -->
-    <string name="search_title">Hľadanie</string>
-    <string name="search_hint">Názov filmu alebo seriálu...</string>
-    <string name="search_btn">Hľadať</string>
-    <string name="search_idle">Zadaj názov filmu alebo seriálu</string>
-    <string name="search_empty">Nič sa nenašlo</string>
+    <string name="s_hladanie">Hľadanie</string>
+    <string name="s_dajteNaz">Dajte názov filmu :)</string>
+    <string name="s_hladaj_button">Hľadať</string>
+    <string name="s_zadaj_nazov">Zadaj názov filmu čo chceš nájsť</string>
+    <string name="s_nic_sa_nenaslo">Nič sa nenašlo, skúste iný názov</string>
 
     <!-- DetailScreen -->
     <string name="detail_title">Detail filmu</string>

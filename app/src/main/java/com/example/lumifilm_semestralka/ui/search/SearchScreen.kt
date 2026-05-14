@@ -10,7 +10,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -19,7 +21,8 @@ import coil.compose.AsyncImage
 import com.example.lumifilm_semestralka.data.repository.MovieRepository
 import com.example.lumifilm_semestralka.domain.model.Movie
 import com.example.lumifilm_semestralka.ui.Screen
-
+import androidx.compose.ui.res.stringResource
+import com.example.lumifilm_semestralka.R
 @Composable
 fun SearchScreen(
     navController: NavController,
@@ -38,7 +41,7 @@ fun SearchScreen(
             .padding(16.dp)
     ) {
         Text(
-            text = "Hľadanie",
+            stringResource(R.string.s_hladanie),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold
         )
@@ -49,12 +52,12 @@ fun SearchScreen(
         OutlinedTextField(
             value = query,
             onValueChange = { viewModel.onQueryChange(it) },
-            label = { Text("Dajte názov filmu alebo seriálu :)") },
+            label = { Text(stringResource(R.string.s_dajteNaz)) },
             modifier = Modifier.fillMaxWidth(),
             singleLine = true,
             trailingIcon = {
                 Button(onClick = { viewModel.searchMovies() }) {
-                    Text("Hľadať")
+                    Text(stringResource(R.string.s_hladaj_button))
                 }
             }
         )
@@ -69,7 +72,7 @@ fun SearchScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Zadaj názov filmu alebo seriálu",
+                        stringResource(R.string.s_zadaj_nazov),
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -89,7 +92,7 @@ fun SearchScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text("Nič sa nenašlo")
+                        Text(stringResource(R.string.s_nic_sa_nenaslo), color = Color(0xFFFF5555))
                     }
                 } else {
                     LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {

@@ -24,7 +24,6 @@ import com.example.lumifilm_semestralka.data.repository.MovieRepository
 import com.example.lumifilm_semestralka.domain.model.Movie
 import com.example.lumifilm_semestralka.ui.Screen
 
-// AI assisted: Obrazovka osobného zoznamu filmov
 @Composable
 fun MojList(navController: NavController, repository: MovieRepository) {
     val viewModel: MyListViewModel = viewModel(factory = MyListViewModelFactory(repository))
