@@ -48,7 +48,7 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Vyberte si žáner",
+            stringResource(R.string.h_vyber_zanra),
             style = MaterialTheme.typography.titleMedium,
             color = Color(0xFFFFFFFF)
         )
@@ -77,7 +77,7 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
             onClick = { viewModel.getRecommendation() },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("🎬 Odporúč mi film", color = Color(0xFF000000))
+            Text(stringResource(R.string.h_recomend), color = Color(0xFF000000))
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -89,7 +89,7 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        "Vyber žáner a stlač tlačidlo",
+                        stringResource(R.string.h_vyber_zaner_a_stlac),
                         color = Color(0xFFAAAAAA)
                     )
                 }
@@ -154,7 +154,7 @@ fun HomeScreen(navController: NavController, repository: MovieRepository) {
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Text(
-                                    text = "Zobraziť detail",
+                                    stringResource(R.string.h_zobraz_detail),
                                     color = Color(0xFF000000)
                                 )
                             }
