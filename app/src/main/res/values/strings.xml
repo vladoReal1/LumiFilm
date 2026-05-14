@@ -17,17 +17,17 @@
     <string name="s_nic_sa_nenaslo">Nič sa nenašlo, skúste iný názov</string>
 
     <!-- DetailScreen -->
-    <string name="detail_title">Detail filmu</string>
-    <string name="detail_want_to_watch">Chcem pozrieť</string>
-    <string name="detail_watched">Pozrené</string>
-    <string name="detail_favourite">Obľúbené</string>
-    <string name="detail_description">Popis</string>
-    <string name="detail_no_overview">Popis nie je dostupný</string>
-    <string name="detail_note">Moja poznámka</string>
-    <string name="detail_note_hint">Pridaj poznámku...</string>
-    <string name="detail_save_note">Uložiť poznámku</string>
-    <string name="detail_not_found">Film sa nenašiel</string>
-    <string name="detail_back">Späť</string>
+    <string name="d_title">Detail filmu</string>
+    <string name="d_chcem_pozriet">Chcem pozrieť</string>
+    <string name="d_pozrene">Pozrené</string>
+    <string name="d_oblubene">Obľúbené</string>
+    <string name="d_popis">Popis</string>
+    <string name="d_popis_nieje_dost">Popis nie je dostupný</string>
+    <string name="d_moja_poznamka">Moja poznámka</string>
+    <string name="d_pridanie_pozn">Pridaj poznámku...</string>
+    <string name="d_ulozit_poznamku">Uložiť poznámku</string>
+    <string name="d_film_nenasiel">Film sa nenašiel</string>
+    <string name="d_spat">Späť</string>
 
     <!-- MyListScreen -->
     <string name="mylist_title">Môj zoznam</string>
