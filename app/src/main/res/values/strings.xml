@@ -55,5 +55,8 @@
     <string name="w_title">🎬 LumiFilm</string>
     <string name="w_sub">Otvor appku a odporúč si film</string>
 
-    <string name="apicko">abf950e397737e5ecda9abd14e0bd09d</string>
+    <string name="a_apicko">abf950e397737e5ecda9abd14e0bd09d</string>
+
+    <!--zanre-->
+    <string name="akcia">Akcia</string>
 </resources>

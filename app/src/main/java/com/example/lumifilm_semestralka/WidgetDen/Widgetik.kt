@@ -18,6 +18,8 @@ import androidx.glance.text.FontWeight
 import androidx.glance.unit.ColorProvider
 import androidx.compose.ui.res.stringResource
 import com.example.lumifilm_semestralka.R
+
+
 // AI assisted: Widget zobrazujuci sa na ploche telefonu
 class LumiFilmWidget : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
@@ -26,7 +28,7 @@ class LumiFilmWidget : GlanceAppWidget() {
         }
     }
 }
-
+//Glance API nepodporuje štandardný Compose stringResource
 @Composable
 fun WidgetContent() {
     Column(
@@ -37,14 +39,16 @@ fun WidgetContent() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            stringResource(R.string.w_title),
+            text = "LumiFilm",
+            //stringResource(R.string.w_title),
             style = TextStyle(
                 color = ColorProvider(day = Color(0xFF03fc94), night = Color(0xFF03fc94)),
                 fontWeight = FontWeight.Bold
             )
         )
         Text(
-            stringResource(R.string.w_sub),
+            text = "Otvor appku pre odporucanie filmu",
+            //stringResource(R.string.w_sub),
             style = TextStyle(
                 color = ColorProvider(day = Color(0xFFFFFFFF), night = Color(0xFFFFFFFF))
             )

@@ -1,5 +1,6 @@
 package com.example.lumifilm_semestralka.ui.home
 
+import androidx.compose.material3.Text
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -8,6 +9,9 @@ import com.example.lumifilm_semestralka.domain.model.Movie
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+
+import androidx.compose.ui.res.stringResource
+import com.example.lumifilm_semestralka.R
 
 // Žánre a ich TMDB ID
 val genres = listOf(

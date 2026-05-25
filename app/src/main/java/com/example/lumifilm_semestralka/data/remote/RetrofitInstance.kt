@@ -1,8 +1,12 @@
 package com.example.lumifilm_semestralka.data.remote
 
+import androidx.compose.foundation.R
+import androidx.compose.material3.Text
+import androidx.compose.ui.res.stringResource
 import com.example.lumifilm_semestralka.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import androidx.compose.ui.res.stringResource
 
 // AI assisted: Singleton objekt pre Retrofit inštanciu
 object RetrofitInstance {
@@ -21,5 +25,5 @@ object RetrofitInstance {
 
     val apiKey: String = "abf950e397737e5ecda9abd14e0bd09d"
 
-
+    //val apiKey: String = stringResource(R.string.a_apicko)
 }
