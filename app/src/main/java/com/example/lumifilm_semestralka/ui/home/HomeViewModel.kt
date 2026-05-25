@@ -13,7 +13,8 @@ import kotlinx.coroutines.launch
 import androidx.compose.ui.res.stringResource
 import com.example.lumifilm_semestralka.R
 
-// Žánre a ich TMDB ID
+// každý žáner je párovaný s číselným ID z TMDB API
+//preto som si to nemohol oznaci  ako ce  stringResource!
 val genres = listOf(
     "Akcia" to 28,
     "Komédia" to 35,

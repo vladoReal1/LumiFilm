@@ -24,6 +24,8 @@ import com.example.lumifilm_semestralka.data.repository.MovieRepository
 import com.example.lumifilm_semestralka.domain.model.WatchStatus
 import androidx.compose.ui.res.stringResource
 import com.example.lumifilm_semestralka.R
+
+
 // Obrazovka detailu filmu
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

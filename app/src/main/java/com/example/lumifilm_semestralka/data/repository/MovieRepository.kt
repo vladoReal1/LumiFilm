@@ -9,12 +9,11 @@ import com.example.lumifilm_semestralka.domain.model.WatchStatus
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-// AI assisted: Repository spája lokálnu DB a API
+//Repository spája lokálnu DB a API
 class MovieRepository(private val database: LumiFilmDatabase) {
 
     private val dao = database.movieDao()
 
-    // ---- SIEŤOVÉ VOLANIA ----
 
     suspend fun searchMovies(query: String) = fetchMovies {
         RetrofitInstance.api.searchMovies(RetrofitInstance.apiKey, query).results
@@ -25,7 +24,6 @@ class MovieRepository(private val database: LumiFilmDatabase) {
         RetrofitInstance.api.getMoviesByGenre(RetrofitInstance.apiKey, genreId).results
     }
 
-    // Pomocná funkcia – zabalí každé API volanie do try/catch
     private suspend fun fetchMovies(block: suspend () -> List<com.example.lumifilm_semestralka.data.remote.MovieDto>): List<Movie> {
         return try {
             block().map { it.toMovie() }
@@ -34,7 +32,7 @@ class MovieRepository(private val database: LumiFilmDatabase) {
         }
     }
 
-    // ---- LOKÁLNA DATABÁZA ----
+    //LOKÁLNA DATABÁZA
 
     fun getAllSavedMovies(): Flow<List<Movie>> =
         dao.getAllMovies().map { it.map { e -> e.toMovie() } }

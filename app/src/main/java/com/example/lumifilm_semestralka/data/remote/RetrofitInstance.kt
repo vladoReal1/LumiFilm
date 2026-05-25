@@ -21,7 +21,7 @@ object RetrofitInstance {
             .create(TmdbApi::class.java)
     }
 
-    // API kľúč dostupný cez BuildConfig
+    // API kľúč
 
     val apiKey: String = "abf950e397737e5ecda9abd14e0bd09d"
 

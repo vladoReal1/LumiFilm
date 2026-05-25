@@ -18,7 +18,6 @@ sealed class DetailUiState {
     data class Error(val message: String) : DetailUiState()
 }
 
-// AI assisted: ViewModel pre detail filmu
 class DetailViewModel(
     private val repository: MovieRepository,
     private val movieId: Int

@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-// AI assisted: ViewModel pre obrazovku osobného zoznamu
 class MyListViewModel(private val repository: MovieRepository) : ViewModel() {
 
     private val _wantToWatch = MutableStateFlow<List<Movie>>(emptyList())
@@ -56,6 +55,8 @@ class MyListViewModel(private val repository: MovieRepository) : ViewModel() {
         }
     }
 }
+
+// AI assisted:
 
 class MyListViewModelFactory(private val repository: MovieRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

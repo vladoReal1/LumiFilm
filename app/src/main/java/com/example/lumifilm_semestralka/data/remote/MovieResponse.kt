@@ -3,7 +3,7 @@ package com.example.lumifilm_semestralka.data.remote
 import com.example.lumifilm_semestralka.domain.model.Movie
 import com.google.gson.annotations.SerializedName
 
-// AI assisted: DTO triedy pre odpovede z TMDB API
+//  DTO triedy pre odpovede z TMDB API
 data class MovieResponse(
     @SerializedName("results")
     val results: List<MovieDto>,
